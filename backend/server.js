@@ -10,6 +10,10 @@ import AuthRoute from "./routes/AuthRoute.js";
 import UserRoleRoute from "./routes/UserRoleRoute.js";
 import CustomerRoute from "./routes/CustomerRoute.js";
 import ItemRoute from "./routes/ItemRoute.js";
+import OrderRoute from "./routes/OrderRoute.js";
+import DeliveryRoute from "./routes/DeliveryRoute.js";
+// import OrderModel from "./models/OrderModel.js";
+
 dotenv.config();
 
 const app = express();
@@ -45,8 +49,9 @@ app.use(AuthRoute);
 app.use(UserRoleRoute);
 app.use(CustomerRoute);
 app.use(ItemRoute);
-
-
+app.use(OrderRoute);
+app.use(DeliveryRoute);
+// app.use(OrderModel);
 // store.sync();
 
 app.listen(process.env.APP_PORT, ()=> {

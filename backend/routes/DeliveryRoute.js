@@ -1,23 +1,14 @@
 import express from "express";
 import {
-    getItems,
-    createItem,
-    updateItemInfo,
-    updateItemQuantity,
-    activeItem,
-    lockItem
-} from "../controllers/Items.js";
+    getDelivery
+} from "../controllers/Delivery.js";
 import { verifyUser, adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
-router.get('/items/:queryTag/:value1/:value2/:value3/:value4', getItems);
-router.post('/items', createItem);
-router.patch('/items/:item_id', updateItemInfo);
-router.patch('/item_quantity/:item_id', updateItemQuantity);
-// router.delete('/customers/:customer_id', deleteCustomer);
-router.patch('/items/active/:item_id', activeItem);
-router.patch('/items/lock/:item_id', lockItem);
+
+router.get('/delivery/:queryTag/:value1/:value2/:value3/:value4', getDelivery);
+// router.post('/delivery', createDelivery);
 
 
 

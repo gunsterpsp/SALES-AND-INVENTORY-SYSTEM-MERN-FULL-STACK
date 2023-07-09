@@ -66,7 +66,8 @@
     "sass": "^1.63.4",
     "styled-components": "^6.0.0-rc.3",
     "sweetalert2": "^11.7.12",
-    "sweetalert2-react-content": "^5.0.7"
+    "sweetalert2-react-content": "^5.0.7",
+    "uuid": "^9.0.0"
   },
   "peerDependencies": {
     "react": ">=16.0.0",

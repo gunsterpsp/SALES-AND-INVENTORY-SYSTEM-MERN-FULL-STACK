@@ -3,8 +3,8 @@ import db from "../config/Database.js";
 
 const {DataTypes} = Sequelize;
 
-const Orders = db.define('orders',{
-    order_id:{
+const Orders = db.define('delivery',{
+    delivery_id:{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -64,14 +64,14 @@ const Orders = db.define('orders',{
             notEmpty: true
         }
     },
-    customer_id:{
-        type: DataTypes.INTEGER,
+    user_uuid:{
+        type: DataTypes.STRING,
         allowNull: false,
         validate:{
             notEmpty: true
         }
     },
-    user_uuid:{
+    delivery_date:{
         type: DataTypes.STRING,
         allowNull: false,
         validate:{

@@ -59,6 +59,46 @@ export const updateItemInfo = async(req, res) =>{
     }
 }
 
+export const updateItemQuantity = async(req, res) =>{
+
+
+    const item_id = req.params.item_id;
+    const item_quantity = req.body.item_quantity;
+    const item_elements = req.body.item_elements;
+
+    const total = item_quantity-item_elements;
+
+    const values = [{item_id, total}];
+
+    for (let i = 0; i < values.length; i++) {
+        const element = values[i];
+        const sql = `UPDATE items SET item_quantity = '${element.total}' WHERE item_id = '${element.item_id}' `;
+        db.query(sql, (err, data) => {
+            try {
+                res.json(data);
+            } catch (error) {
+                res.json(err);
+            }
+        })
+    }
+
+
+
+    // try {
+
+    //     await Item.update([{
+    //         item_quantity: total
+    //     },{
+    //         where:{
+    //             item_id: item.item_id
+    //         }
+    //     }]);
+    //     res.status(200).json({msg: item_quantity});
+    // } catch (error) {
+    //     res.status(400).json({msg: error.message});
+    // }
+}
+
 export const deleteCustomer = async(req, res) =>{
     const customer = await Customer.findOne({
         where: {

@@ -11,6 +11,7 @@ import ForgotPassword from "pages/ForgotPassword";
 import Profile from "pages/Profile";
 import Customers from "pages/Customers";
 import Items from "pages/Items";
+import Delivery from "pages/Delivery";
 
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
         <Route path="/recover" element={<ForgotPassword />} />
         <Route path="/pages/dashboard" element={<Dashboard />} />
         <Route path="/pages/orders" element={<Orders />} />
-        <Route path="/pages/delivery" element={<Layout />} />
+        <Route path="/pages/delivery" element={<Delivery />} />
         <Route path="/pages/users" element={<Users />} />
         <Route path="/pages/profile" element={<Profile />} />
         <Route path="/pages/customers" element={<Customers />} />

@@ -1,42 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useLocation, Route, Routes, Navigate } from "react-router-dom";
+// reactstrap components
+import { Container } from "reactstrap";
+// core components
+import UserNavbar from "components/UserNavbar";
+import Footer from "components/Footer";
+import Sidebar from "components/Sidebar";
+import Headers from "components/Header";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import TableDelivery from "layouts/TableDelivery";
 
-import Sidebar from '../partials/Sidebar';
-import Header from '../partials/Header';
-import WelcomeBanner from '../partials/dashboard/WelcomeBanner';
-import DashboardCard10 from '../partials/dashboard/DashboardCard10';
 
+const Delivery = (props) => {
+  const {className} = props;
 
+  const [modal, setModal] = useState(false);
 
-function Delivery() {
-
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  const toggle = () => setModal(!modal);
   return (
-    <div className="flex h-screen overflow-hidden">
+    <>
+      <Sidebar
+        logo={{
+          innerLink: "/pages/dashboard",
+          imgSrc: require("../assets/img/brand/argon-react.png"),
+          imgAlt: "...",
+        }}/>
+      <div className="main-content">
+        <Headers />
+        <UserNavbar />
+        <TableDelivery />
 
-      {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-
-      {/* Content area */}
-      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-
-        {/*  Site header */}
-        <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-
-        <main>
-          <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-
-            {/* Welcome banner */}
-            <WelcomeBanner />
-
-
-            <DashboardCard10 />
-          </div>
-        </main>
-
+        <Container fluid>
+          <Footer />
+        </Container>
       </div>
-    </div>
+    </>
   );
-}
+};
 
 export default Delivery;
